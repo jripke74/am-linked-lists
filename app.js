@@ -6,8 +6,13 @@ class LinkedList {
 
   append(value) {
     const newNode = { value: value, next: null };
-    this.tail.next = newNode;
+    if (this.tail) {
+      this.tail.next = newNode;
+    }
     this.tail = newNode;
+    if (!this.head) {
+      this.head = newNode
+    } 
   }
 }
 
