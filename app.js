@@ -12,8 +12,37 @@ class LinkedList {
     this.tail = newNode;
     if (!this.head) {
       this.head = newNode
-    } 
+    }
+  }
+
+  prepend(value) {
+    const newNode = { value: value, next: this.head };
+
+    this.head = newNode;
+    if (!this.tail) {
+      this.tail = newNode;
+    }
+  }
+
+  toArray() {
+    const elements = [];
+
+    let curNode = this.head;
+    while (curNode) {
+      elements.push(curNode);
+      curNode = curNode.next;
+    }
+
+    return elements;
   }
 }
 
 const linkedList1 = new LinkedList();
+linkedList1.append(1);
+linkedList1.append("hello there");
+linkedList1.append("Max");
+linkedList1.append(true);
+linkedList1.append(18.51);
+linkedList1.prepend("First value");
+
+console.log(linkedList1.toArray());
